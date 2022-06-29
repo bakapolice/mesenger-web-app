@@ -1,83 +1,39 @@
-# Vue.js JWT Authentication with Vuex and Vue Router
+# Веб-приложение "Messenger"
 
-For instruction, please visit:
-> [Vue 2 JWT Authentication with Vuex and Vue Router](https://bezkoder.com/jwt-vue-vuex-authentication/)
+## Структура
 
-> [Using Typescript](https://bezkoder.com/vuex-typescript-jwt-auth/)
+- Папка **client** - содержит клиенту часть веб-приложения
+- Папка **server** - содержит серверную часть веб-приложения
+    - папка **auth-service** - содержит микросервис авторизации и регистрации
+    - папка **chat-service** - содержит основную логику и работу с данными
+- Файл **messenger.sql** - файл базы данных PostgreSQL, необходимый для работы веб-приложения
 
-> [Vue 3 JWT Authentication with Vuex and Vue Router](https://bezkoder.com/vue-3-authentication-jwt/)
+## Подготовка БД к работе
 
-More Practice:
-> [Vue.js CRUD App with Vue Router & Axios](https://bezkoder.com/vue-js-crud-app/)
+- Переходим по [ссылке](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) и скачиваем нужную версию установщика
+- При установке выбрать следующие компоненты компоненты:
+    - PostgreSQL Server
+    - pgAdmin 4
+    - Command Line Tools
+- При запросе установить пароль для базы данных указать, например, password
+- !Важно! Оставляем/указываем порт 5432, так как он уже указан в настройках проекта серверной части
+- Локаль оставляем по умолчанию
+- Завершаем установку
 
-> [Vue Pagination with Axios and API example](https://bezkoder.com/vue-pagination-axios/)
+# Восстановление базы данных
+- Открываем установленный pgAdmin 4
+- При первом запуске будет запрос на установку мастер пароля для pgAdmin 4. Указываем любой пароль. Далее он понадобится при повторных входах в pgAdmin 4.
+- Раскрываем вкладку Servers
+- Вводим пароль, который мы указали при установке сервера
+- Раскрываем вкладку с нашим сервером и нажимаем ПКП по вкладке **Databases**
+- Указываем название **messenger**, владельца оставляем **postgres**
+- Нажимаем Save
+- Нажимаем ПКМ по только что созданной базе данных
+- Выбираем пункт меню Restore
+- Указываем скачанный из репозитория файлик **messenger.sql** 
+- Нажимаем restore
 
-> [Vue File Upload example using Axios](https://bezkoder.com/vue-axios-file-upload/)
+[Видеоинструкция](https://www.youtube.com/watch?v=oEi5IUgxaU0) по установке БД PostgreSQL
 
-Fullstack with Spring Boot Back-end:
-> [Spring Boot + Vue.js: Authentication with JWT & Spring Security Example](https://bezkoder.com/spring-boot-vue-js-authentication-jwt-spring-security/)
+# На этом подготовка базы данных для работы завершена
 
-Fullstack with Node.js Express Back-end:
-> [Node.js Express + Vue.js: JWT Authentication & Authorization example](https://bezkoder.com/node-express-vue-jwt-auth/)
-
-Fullstack CRUD:
-> [Vue.js + Node.js + Express + MySQL example](https://bezkoder.com/vue-js-node-js-express-mysql-crud-example/)
-
-> [Vue.js + Node.js + Express + PostgreSQL example](https://bezkoder.com/vue-node-express-postgresql/)
-
-> [Vue.js + Node.js + Express + MongoDB example](https://bezkoder.com/vue-node-express-mongodb-mevn-crud/)
-
-> [Vue.js + Spring Boot + MySQL/PostgreSQL example](https://bezkoder.com/spring-boot-vue-js-crud-example/)
-
-> [Vue.js + Spring Boot + MongoDB example](https://bezkoder.com/spring-boot-vue-mongodb/)
-
-> [Vue.js + Django example](https://bezkoder.com/django-vue-js-rest-framework/)
-
-Integration (run back-end & front-end on same server/port)
-> [Integrate Vue.js with Spring Boot](https://bezkoder.com/integrate-vue-spring-boot/)
-
-> [Integrate Vue App with Node.js Express](https://bezkoder.com/serve-vue-app-express/)
-
-## Note:
-Open `src/services/auth-header.js` and modify `return` statement for appropriate back-end.
-
-```js
-export default function authHeader() {
-  let user = JSON.parse(localStorage.getItem('user'));
-
-  if (user && user.accessToken) {
-    return { Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
-    // return { 'x-access-token': user.accessToken };       // for Node.js Express back-end
-  } else {
-    return {};
-  }
-}
-```
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
