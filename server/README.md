@@ -10,8 +10,9 @@
 ### Настроить модули, зависимости и версии языка:
 - File -> Project Structure -> Project -> Language Level: Defauld SDK (17)
 - File -> Project Structure -> Modules -> Dependencies -> Module SDK: Project SDK 17
-- File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Project bytecode version: 17
 - File -> Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Gradle JVM: Project SDK 17
+- File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Project bytecode version: 17
+
 ### Настроить конфигуратор запуска:
 - Run -> Edit Configurations... -> Spring Boot -> <название текущего конфигуратора> -> Build and run: java 17
 ### Настроить соединение с БД для обоих проектов (если БД уже настроена по первой инструкции)
